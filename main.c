@@ -7,9 +7,12 @@
 // more sense to order them so the second one is first (like when you have
 // functions you use in main, but want main first so it's one of the first
 // things in the file
+//
+// additionally, making a function static makes it local to that object file
+// (compiled but unlinked source file), which can let the compiler cook more
 
 // draw the scene
-void DrawScene(void);
+static void DrawScene(void);
 
 // main is the entry point, argc is the number of command line arguments, argv
 // is the arguments
@@ -29,9 +32,8 @@ int32_t main(int32_t argc, char* argv[])
 	// events and returns false when the window is closed
 	while (Update())
 	{
-		DrawScene(); // draws stuff
-		Present();   // presenting just means putting whatever you drew onto
-					 // the screen
+		//DrawScene(); // draws stuff
+		Present();   // presenting just means putting whatever you drew onto the screen
 	}
 
 	// for main specifically, this line is implied at the end of the function

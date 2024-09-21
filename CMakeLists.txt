@@ -5,9 +5,10 @@ project(gldemo LANGUAGES C)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED TRUE)
 
-include_directories(glad/include)
+include_directories(${CMAKE_SOURCE_DIR} glad/include)
 
 set(SOURCES main.c
+			misc.c
 			stuff.h
 			win32.c
 			glad/src/egl.c

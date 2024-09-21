@@ -17,6 +17,7 @@
 // these are standard headers, people typically include all the ones they use in
 // the whole project in one header somewhere
 #include <inttypes.h> // uint32_t and stuff
+#include <stdarg.h> // for variadic functions (functions that take a variable number of arguments, like printf)
 #include <stdbool.h>  // bool and true/false
 #include <stdio.h>    // printf and files
 #include <stdlib.h>   // miscellaneous stuff
