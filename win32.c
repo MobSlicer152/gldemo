@@ -50,10 +50,6 @@ void CreateMainWindow(void)
 	// module.
 	s_module = GetModuleHandleA(NULL);
 
-	// it's common to print what the program is currently doing to aid in debugging.
-	// in more complex projects, it's typical to use a logging library instead of printf.
-	printf("Registering window class\n");
-
 	// a window class has things like the event handling function (window procedure), icon, cursor,
 	// menu, and some default colours for windows created using it
 	//
@@ -89,6 +85,10 @@ void CreateMainWindow(void)
 	// checked
 	if (!s_wndClass)
 	{
+		// it's common to print what the program is currently doing to aid in debugging.
+		// in more complex projects, it's typical to use a logging library instead of printf.
+		printf("Registering window class\n");
+
 		s_wndClass = RegisterClassExA(&wndClass);
 		if (!s_wndClass)
 		{
@@ -170,13 +170,11 @@ void CreateGlContext(void)
 	// initialized at runtime, and has a value known at compile time (which can be better for
 	// optimization).
 	static const PIXELFORMATDESCRIPTOR TEMP_PIXEL_FORMAT = {
-		// flags can be bitwise or'd together, which lets you use a
-		// single integer as up to 64 flags (depending on the size of it).
-		// this is way more efficient than having a bunch of booleans,
-		// and is a very common pattern. some apis use a union (which
-		// basically lets you access an area of memory as multiple different
-		// types) of a struct with bit fields (fields that are only a subset
-		// of the bits in a value) and an integer so you can use it like
+		// flags can be bitwise or'd together, which lets you use a single integer as up to 64 flags
+		// (depending on the size of it). this is way more efficient than having a bunch of
+		// booleans, and is a very common pattern. some apis use a union (which basically lets you
+		// access an area of memory as multiple different types) of a struct with bit fields (fields
+		// that are only a subset of the bits in a value) and an integer so you can use it like
 		// booleans or just set flags directly like this.
 		//
 		// i.e.
@@ -187,14 +185,13 @@ void CreateGlContext(void)
 		//
 		// union
 		// {
-		//     // technically, this is non-standard (not naming the struct field), but it's allowed
-		//     // in most compilers
 		//     struct
 		//     {
 		//         uint32_t field1 : 1;
 		//         uint32_t field2 : 1;
 		//         uint32_t field3 : 1;
-		//     };
+		//     }; // should have a name but every common compiler allows it not to, even though
+		//        // that's non-standard
 		//     uint32_t fields;
 		// } x;
 		//

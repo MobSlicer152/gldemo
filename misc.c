@@ -1,4 +1,4 @@
-// This file implements FatalError
+// This file implements some random useful functions
 
 #include "stuff.h"
 
@@ -62,4 +62,43 @@ void FatalError(const char* message, ...)
 	// the program's memory and cpu state at the time of the error that you can
 	// inspect in a debugger)
 	abort();
+}
+
+void* LoadFile(const char* name, size_t* size)
+{
+	// make sure the name and size are valid, so that a null pointer doesn't get dereferenced
+	if (!name || !size)
+	{
+		return NULL;
+	}
+
+	// open the file in binary read mode (to prevent it from messing with carriage return/newline
+	// characters)
+	FILE* file = fopen(name, "rb");
+	if (!file) // fopen returns null on failure
+	{
+		FatalError("failed to read file %s!\n", name);
+	}
+
+	// get the size of the file by going to the end, getting the current position, and then going
+	// back
+	fseek(file, 0, SEEK_END);
+	*size = ftell(file); // dereferencing a pointer allows reading/writing to the memory it points
+						 // to. this line lets the caller of the function know the size of the file.
+	fseek(file, 0, SEEK_SET); // can also use rewind() for this
+
+	// allocate a buffer to hold the file, with a nul terminator in case it's text
+	void* buffer = calloc(*size + 1, 1);
+	if (!buffer)
+	{
+		FatalError("failed to allocate %zu bytes!\n", *size + 1);
+	}
+
+	// read into the buffer
+	fread(buffer, 1, *size, file);
+
+	// close the file
+	fclose(file);
+
+	return buffer;
 }
