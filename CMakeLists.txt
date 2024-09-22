@@ -15,4 +15,4 @@ set(SOURCES main.c
 			glad/src/gl.c
 			glad/src/wgl.c)
 add_executable(gldemo ${SOURCES})
-
+target_link_libraries(gldemo PRIVATE opengl32.lib)

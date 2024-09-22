@@ -32,9 +32,11 @@ int32_t main(int32_t argc, char* argv[])
 	// events and returns false when the window is closed
 	while (Update())
 	{
-		//DrawScene(); // draws stuff
-		Present();   // presenting just means putting whatever you drew onto the screen
+		// DrawScene(); // draws stuff
+		Present(); // presenting just means putting whatever you drew onto the screen
 	}
+
+	DestroyMainWindow();
 
 	// for main specifically, this line is implied at the end of the function
 	return 0;
@@ -42,7 +44,7 @@ int32_t main(int32_t argc, char* argv[])
 
 void DrawScene(void)
 {
-	// ClearColor and ClearDepth set the clear value for that buffer, glClear
+	// ClearColor and ClearDepth set the clear value for those buffers, Clear
 	// clears the specified buffers
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClearDepth(1.0f);

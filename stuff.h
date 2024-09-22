@@ -78,14 +78,20 @@ extern void FatalError(const char* format, ...);
 // create the window where rendering happens
 extern void CreateMainWindow(void);
 
-// create an opengl context (this uses wgl on windows)
-extern void CreateGlContext(void);
+// destroy the main window and opengl context
+extern void DestroyMainWindow(void);
 
-// load the rest of opengl with glad
-extern void LoadOpenGl(void);
+// create an opengl context and load opengl
+extern void CreateGlContext(void);
 
 // update the window
 extern bool Update(void);
 
 // swap the framebuffer and the backbuffer
 extern void Present(void);
+
+// get the window width
+extern int32_t GetWindowWidth(void);
+
+// get the window height
+extern int32_t GetWindowHeight(void);
