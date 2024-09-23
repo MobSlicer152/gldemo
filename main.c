@@ -36,7 +36,7 @@ int32_t main(int32_t argc, char* argv[])
 
 	// clang-format off
 	s_vertexBuffer = CreateVertexBuffer(
-		// you can declare structs/arrays inline like this to pass them to functions more easily
+		// you can declare structs/arrays inline like this to pass them to functions more easily.
 		// these vertices are in screen coordinates, you would need a math library to properly
 		// transform them and project them from model space to world space to screen space. the
 		// vertices get multiplied with a special transformation matrix passed into the vertex
