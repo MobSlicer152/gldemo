@@ -2,17 +2,19 @@
 
 [screenshot](screenshot.png)
 
+this is a demo of c and opengl, it has a lot of comments.
+
 you should to read the files in this order:
 
-- `CMakeLists.txt`
-- `main.c`
-- `stuff.h`
-- `win32.c`
-- `misc.c`
-- `opengl.c`
-- `vertex.glsl`
-- `fragment.glsl`
-- `main.c`` (read it again with all the context of the other files)
+- [`CMakeLists.txt`](CMakeLists.txt)
+- [`main.c`](main.c)
+- [`stuff.h`](stuff.h)
+- [`win32.c`](win32.c)
+- [`misc.c`](misc.c)
+- [`opengl.c`](opengl.c)
+- [`vertex.glsl`](vertex.glsl)
+- [`fragment.glsl`](fragment.glsl)
+- [`main.c`](main.c) (read it again with all the context of the other files)
 
 ### other resources
 
