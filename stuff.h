@@ -29,9 +29,8 @@
 // platform
 #ifdef _WIN32
 // these are windows headers
-#define WIN32_LEAN_AND_MEAN                                                                        \
-	1                // excludes obscure stuff that doesn't matter, it
-					 // matters so little i don't even know what it excludes
+#define WIN32_LEAN_AND_MEAN 1 // excludes obscure stuff that doesn't matter, it
+					 		  // matters so little i don't even know what it excludes
 #include <windows.h> // has everything for windows almost
 #endif
 

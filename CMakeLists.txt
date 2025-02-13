@@ -24,7 +24,7 @@ set(SOURCES main.c
 			# this is just to include these files in the project for easy access
 			vertex.glsl
 			fragment.glsl
-			README.txt)
+			README.md)
 # make an executable from the sources
 add_executable(gldemo ${SOURCES})
 # link it to glad and opengl32.lib (this is platform specific and should go in an if)
