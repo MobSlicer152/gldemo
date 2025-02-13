@@ -1,6 +1,6 @@
 ## opengl demo
 
-[screenshot.png](screenshot)
+![screenshot](screenshot.png)
 
 this is a demo of c and opengl, it has a lot of comments.
 
